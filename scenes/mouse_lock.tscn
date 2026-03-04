@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xvirvni0l0oy"]
+
+[ext_resource type="Script" uid="uid://dqa7a7jvmltv4" path="res://scripts/mouse_lock.gd" id="1_g4cg0"]
+
+[node name="MouseLock" type="Node" unique_id=1392755409]
+script = ExtResource("1_g4cg0")

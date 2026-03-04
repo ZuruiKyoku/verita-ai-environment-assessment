@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dy26xc485fhld"]
+
+[ext_resource type="Script" uid="uid://c4lirninwb66" path="res://scripts/player.gd" id="1_f6swd"]
+[ext_resource type="ArrayMesh" uid="uid://dqjw21pxaloaq" path="res://Models/character_head.res" id="3_hqtel"]
+[ext_resource type="ArrayMesh" uid="uid://w8yo4ju46f6s" path="res://Models/character_body.res" id="4_sweqy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ha1jo"]
+radius = 0.19628906
+height = 0.7635498
+
+[node name="Player" type="CharacterBody3D" unique_id=1662609233]
+physics_interpolation_mode = 1
+collision_layer = 2
+collision_mask = 27
+script = ExtResource("1_f6swd")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=147410492]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.15, 0)
+
+[node name="PlayerHeadPivot" type="Marker3D" parent="Node3D" unique_id=1929676475]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50063205, 0)
+
+[node name="PlayerHead" type="MeshInstance3D" parent="Node3D/PlayerHeadPivot" unique_id=137052114]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50063205, 0)
+gi_mode = 0
+mesh = ExtResource("3_hqtel")
+
+[node name="PlayerBody" type="MeshInstance3D" parent="Node3D" unique_id=2076817700]
+unique_name_in_owner = true
+gi_mode = 0
+mesh = ExtResource("4_sweqy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=638872462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7571411, 0)
+shape = SubResource("CapsuleShape3D_ha1jo")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=976424925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.54032135, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1803547311]
+
+[node name="CarryLocation" type="Marker3D" parent="CameraPivot" unique_id=311623875]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47309485, -0.78295445)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot" unique_id=924562631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29494154, 0)
+target_position = Vector3(0, 0, -1)
+collision_mask = 8

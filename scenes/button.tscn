@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d3nux4snigmic"]
+
+[ext_resource type="Script" uid="uid://c8t7ulnl2bmxe" path="res://scripts/button.gd" id="1_mi6dp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4pas"]
+size = Vector3(1, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhj8v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4pas"]
+material = SubResource("StandardMaterial3D_rhj8v")
+size = Vector3(1, 0.5, 0.5)
+
+[node name="Button" type="RigidBody3D" unique_id=111193396]
+collision_layer = 4
+collision_mask = 25
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_mi6dp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1380581895]
+shape = SubResource("BoxShape3D_n4pas")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1775374166]
+mesh = SubResource("BoxMesh_n4pas")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
